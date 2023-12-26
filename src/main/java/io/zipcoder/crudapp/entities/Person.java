@@ -2,13 +2,14 @@ package io.zipcoder.crudapp.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Person {
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String firstName;
     private String lastName;
 
@@ -18,17 +19,17 @@ public class Person {
         this(null, firstName, lastName);
     }
 
-    public Person(Long id, String firstName, String lastName){
+    public Person(Integer id, String firstName, String lastName){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
